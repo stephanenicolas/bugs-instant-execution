@@ -1,7 +1,7 @@
 # bugs-instant-execution
 Sample project to illustrate instant execution bugs in Android projects
 
-Bug 1: 
+Bug 1: https://issuetracker.google.com/issues/148341619
 * commit: `d9b42988e6c22c8bd2ca577d9f4ec3c9999c985e`
 * command: `./gradlew :app:assembleDebug -Dorg.gradle.unsafe.instant-execution=true`
 * Error:
