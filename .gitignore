@@ -1,0 +1,59 @@
+# Maven
+target
+pom.xml.*
+release.properties
+
+# Gradle
+.gradle
+build/
+!/scripts/**/build
+local.properties
+gradlew.bat
+
+# Gradle Profiler
+profile-out*
+gradle-user-home
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.ipl
+*.ipr
+*.iws
+classes/
+idea-classes/
+coverage-error.log
+
+# Android
+gen
+bin
+!/scripts/**/bin
+project.properties
+out
+
+# Robolectric
+tmp
+
+# Steve Jobs
+.DS_Store
+
+# Emacs
+*~
+.#*
+
+# Vim
+*.sw[op]
+
+# Ignore build files used by Buck
+captures
+buck-out
+.buckd
+.okbuck
+.buckconfig.local
+**/BUCK
+!/scripts/**/buck
+buildSrc/bintray.properties
+.watchman*
+
+# Ignore localization file
+locale-manifest.yml
