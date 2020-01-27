@@ -15,7 +15,7 @@ import androidx.navigation.fragment.navArgs
  */
 class SecondFragment : Fragment() {
 
-    private val args: SecondFragmentArgs by navArgs()
+    //private val args: SecondFragmentArgs by navArgs()
 
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
@@ -28,8 +28,10 @@ class SecondFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        /*
         view.findViewById<TextView>(R.id.textview_second).text =
                 getString(R.string.hello_second_fragment, args.myArg)
+        */
 
         view.findViewById<Button>(R.id.button_second).setOnClickListener {
             findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
