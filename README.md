@@ -3,7 +3,7 @@ Sample project to illustrate instant execution bugs in Android projects
 
 Bug 1: https://issuetracker.google.com/issues/148341619
 * commit: `d9b42988e6c22c8bd2ca577d9f4ec3c9999c985e`
-* command: `./gradlew :app:assembleDebug -Dorg.gradle.unsafe.instant-execution=true`
+* command: `./gradlew :app:assembleDebug -Dorg.gradle.unsafe.instant-execution=true` (run twice)
 * Error:
 ```
 Calculating task graph as no instant execution cache is available for tasks: :app:assembleDebug
@@ -27,3 +27,19 @@ See the complete report at file:///Users/snicolas/git/BugsInstantExecution/.inst
 
 "Solution" --> remove the navigation plugin
 
+Bug 2: https://issuetracker.google.com/issues/148383974
+
+* commit: `4629daf45d0463aedf068e9ac0d7d8678c9b1e2f`
+* command: `./gradlew :app:assembleRelease -Dorg.gradle.unsafe.instant-execution=true` (run twice)
+* Error:
+```
+> Task :app:lintVitalRelease FAILED
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':app:lintVitalRelease'.
+> No builders are available to build a model of type 'com.android.builder.model.AndroidProject'.
+```
+
+"Solution" --> android.lintOptions.checkReleaseBuilds false
