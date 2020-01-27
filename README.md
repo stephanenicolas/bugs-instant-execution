@@ -1,7 +1,7 @@
 # bugs-instant-execution
 Sample project to illustrate instant execution bugs in Android projects
 
-Bug 1: https://issuetracker.google.com/issues/148341619
+### Bug 1: https://issuetracker.google.com/issues/148341619
 * commit: `d9b42988e6c22c8bd2ca577d9f4ec3c9999c985e`
 * command: `./gradlew :app:assembleDebug -Dorg.gradle.unsafe.instant-execution=true` (run twice)
 * Error:
@@ -27,7 +27,7 @@ See the complete report at file:///Users/snicolas/git/BugsInstantExecution/.inst
 
 "Solution" --> remove the navigation plugin
 
-Bug 2: https://issuetracker.google.com/issues/148383974
+### Bug 2: https://issuetracker.google.com/issues/148383974
 
 * commit: `4629daf45d0463aedf068e9ac0d7d8678c9b1e2f`
 * command: `./gradlew :app:assembleRelease -Dorg.gradle.unsafe.instant-execution=true` (run twice)
@@ -43,3 +43,19 @@ Execution failed for task ':app:lintVitalRelease'.
 ```
 
 "Solution" --> android.lintOptions.checkReleaseBuilds false
+
+### Bug 3: https://github.com/gradle/gradle/issues/11841
+* commit: `f4c3df3fa260398cda9ac2378b7506faf645c475`
+* command: `./gradlew :app:assembleRelease -Dorg.gradle.unsafe.instant-execution=true` (run twice)
+* Error:
+```
+> Task :lib1:compileJava FAILED
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':lib1:compileJava'.
+> no source files
+```
+
+Work around --> move kotlin code from `src/main/java` to `/src/mainkotlin`.
