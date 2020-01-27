@@ -1,2 +1,3 @@
 rootProject.name='Bugs Instant Execution'
 include ':app'
+include ':lib1'
