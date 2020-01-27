@@ -36,6 +36,10 @@ android {
         jvmTarget = "1.8"
     }
 
+    lintOptions {
+        // work around for https://issuetracker.google.com/issues/148383974
+        checkReleaseBuilds false
+    }
 }
 
 dependencies {
