@@ -59,3 +59,17 @@ Execution failed for task ':lib1:compileJava'.
 ```
 
 Work around --> move kotlin code from `src/main/java` to `/src/mainkotlin`.
+Workaround 2 : Deactivate the compile task by telling the java convention there is no source to compile.
+```
+sourceSets {
+    main {
+        java {
+            srcDirs = []
+        }
+        kotlin {
+            srcDirs = ['src/main/java']
+        }
+    }
+}
+```
+
